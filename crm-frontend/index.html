@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <div class="site-container">
+        <header class="header">
+    <div class="header__container container">
+        <a class="header__logo" href="#">
+          <img src="img/logo.png" alt="logo">
+        </a>
+        <input class="header__input" type="text" placeholder="Введите запрос">
+    </div>
+</header>
+
+        <main>
+          <section class="clients">
+  <div class="container clients__container">
+    <div class="clients__top">
+      <h1 class="clients__top-title">Клиенты</h1>
+        <table class="clients__table">
+          <thead class="clients__table-thead clients__table-thead--active">
+            <tr class="clients__table-thead-tr clients__table-thead-tr--active">
+              <th class="clients__table-thead-td clients__table-thead-td-id clients__table-thead-td-id--active">
+                  ID
+                  <svg>
+                    <use xlink:href="img/sprite.svg#arrow-sort"></use>
+                  </svg>
+              </th>
+              <th class="clients__table-thead-td clients__table-thead-td-fio">
+                Фамилия имя отчество
+                  <svg>
+                    <use xlink:href="img/sprite.svg#arrow-sort"></use>
+                  </svg>
+                  <span>А-Я</span>
+              </th>
+              <th class="clients__table-thead-td clients__table-thead-td-create">
+                Дата и время создания
+                <svg>
+                  <use xlink:href="img/sprite.svg#arrow-sort"></use>
+                </svg>
+              </th>
+              <th class="clients__table-thead-td clients__table-thead-td-change">
+                Последние изменения
+                <svg>
+                  <use xlink:href="img/sprite.svg#arrow-sort"></use>
+                </svg>
+              </th>
+              <th class="clients__table-thead-td">Контакты</th>
+              <th class="clients__table-thead-td">Действия</th>
+            </tr>
+          </thead>
+          <div class="clients__table-scroll">
+            <tbody class="clients__table-tbody"></tbody>
+          </div>
+        </table>
+      <div class="clients__loader">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
+          <g clip-path="url(#clip0_121_2401)">
+            <path d="M14.0002 50.0005C14.0002 69.8825 30.1182 86.0005 50.0002 86.0005C69.8822 86.0005 86.0002 69.8825 86.0002 50.0005C86.0002 30.1185 69.8823 14.0005 50.0003 14.0005C45.3513 14.0005 40.9082 14.8815 36.8282 16.4865" stroke="#9873FF" stroke-width="8" stroke-miterlimit="10" stroke-linecap="round"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_121_2401">
+              <rect width="100" height="100" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+    </div>
+    <button class="clients__btn btn-reset clients__btn--hidden">
+      <svg>
+        <use xlink:href="img/sprite.svg#add-client"></use>
+      </svg>
+      Добавить клиента
+    </button>
+  </div>
+</section>
+
+        </main>
+        <footer class="footer">
+    <div class="footer__container container">
+    </div>
+</footer>
+
+    </div>
+    <div class="client-modal modal">
+  <div class="client-modal__overlay modal__overlay">
+    <div class="client-modal__content modal__content">
+      <button class="btn-reset client-modal__btn">
+        <svg>
+          <use xlink:href="img/sprite.svg#cross"></use>
+        </svg>
+      </button>
+      <h2 class="client-modal__title">Новый клиент</h2>
+      <form action="" class="client-modal__form" name="addClient">
+        <label class="client-modal__label">
+          <input type="text" class="client-modal__input client-modal__input-lastname" name="addClientInput" autocomplete="off">
+          <span class="client-modal__text-lastname">Фамилия<span class="client-modal__text-star">*</span></span>
+        </label>
+        <label class="client-modal__label">
+          <input type="text" class="client-modal__input client-modal__input-name" name="addClientInput" autocomplete="off">
+          <span class="client-modal__text-name">Имя<span class="client-modal__text-star">*</span></span>
+        </label>
+        <label class="client-modal__label">
+          <input type="text" class="client-modal__input client-modal__input-middlename" name="addClientInput" autocomplete="off">
+          <span class="client-modal__text-middlename">Отчество</span>
+        </label>
+        <div class="add-contacts">
+          <ul class="list-reset add-contacts__list"></ul>
+          <button class="btn-reset add-contacts__btn">
+            <svg>
+              <use xlink:href="img/sprite.svg#add-contact"></use>
+            </svg>
+            Добавить контакт
+          </button>
+          <button class="btn-reset add-contacts__btn-save" type="submit">Сохранить</button>
+          <button class="btn-reset add-contacts__btn-cancel" type="reset">Отмена</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <div class="delete-client-modal modal">
+  <div class="delete-client-modal__overlay modal__overlay">
+    <div class="delete-client-modal__content modal__content">
+      <button class="btn-reset delete-client-modal__btn">
+        <svg>
+          <use xlink:href="img/sprite.svg#cross"></use>
+        </svg>
+      </button>
+      <h2 class="delete-client-modal__title">Удалить клиента</h2>
+      <p class="delete-client-modal__descr">Вы действительно хотите удалить данного клиента?</p>
+      <button class="btn-reset delete-client-modal__delete-btn">Удалить</button>
+      <button class="btn-reset delete-client-modal__cancel-btn">Отмена</button>
+    </div>
+  </div>
+</div>
+
+    <div class="change-client-modal modal">
+  <div class="change-client-modal__overlay modal__overlay">
+    <div class="change-client-modal__content modal__content">
+      <button class="btn-reset change-client-modal__btn">
+        <svg>
+          <use xlink:href="img/sprite.svg#cross"></use>
+        </svg>
+      </button>
+      <h2 class="change-client-modal__title">Изменить данные <span class="change-client-modal__id">ID: 123458</span></h2>
+      <form action="" class="change-client-modal__form" name="changeClient">
+        <label class="change-client-modal__label">
+          <input type="text" class="change-client-modal__input change-client-modal__input-lastname" name="addClientInput" autocomplete="off">
+          <span class="change-client-modal__text-lastname change-client-modal__input--active">Фамилия<span class="change-client-modal__text-star">*</span></span>
+        </label>
+        <label class="change-client-modal__label">
+          <input type="text" class="change-client-modal__input change-client-modal__input-name" name="addClientInput" autocomplete="off">
+          <span class="change-client-modal__text-name change-client-modal__input--active">Имя<span class="change-client-modal__text-star">*</span></span>
+        </label>
+        <label class="change-client-modal__label">
+          <input type="text" class="change-client-modal__input change-client-modal__input-middlename" name="addClientInput" autocomplete="off">
+          <span class="change-client-modal__text-middlename change-client-modal__input--active">Отчество</span>
+        </label>
+        <div class="change-client-modal__add-contacts">
+          <ul class="list-reset change-client-modal__add-contacts__list"></ul>
+          <button class="btn-reset change-client-modal__add-contacts__btn">
+            <svg>
+              <use xlink:href="img/sprite.svg#add-contact"></use>
+            </svg>
+            Добавить контакт
+          </button>
+          <button class="btn-reset change-client-modal__add-contacts__btn-save" type="submit">Сохранить</button>
+          <button class="btn-reset change-client-modal__add-contacts__btn-delete">Удалить клиента</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
